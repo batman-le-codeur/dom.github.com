@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="pink.css" />
+  <title>PinkPanthers</title>
+</head>
+<body>
+
+<header>
+  <div class="logo">PinkPanthers</div>
+  <div class="burger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav class="menu" id="menuNav">
+    <a href="#menu">Chat</a>
+    <a href="#infos">Infos</a>
+    <a href="#contact">Contacts</a>
+  </nav>
+</header>
+
+<h1>PinkPanthers</h1>
+<p>Hey je suis PinkPanthers, une IA développée par TONNY<br>en moins d'une heure</p>
+
+<section id="menu" style="margin-bottom: 50rem;">
+  <div class="chat-container">
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">Bonjour ! Comment puis-je vous aider ?</div>
+    </div>
+    <div class="chat-input">
+      <textarea id="userInput" placeholder="Écrivez un message..."></textarea>
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+</section>
+<footer id="infos">
+  <div class="footer-content">
+    <p style="margin: 10px;">© 2025 PinkPanthers. Tous droits réservés.</p>
+    <p style="margin: 0px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, reprehenderit. Nam vel deserunt a, dicta, nemo earum eveniet aliquid distinctio numquam eligendi mollitia facere rerum vero fugiat. Necessitatibus, pariatur atque.</p>
+    <div class="footer-links">
+      <a href="#menu">Chat</a>
+      <a href="#infos">Infos</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menuNav");
+    const burger = document.querySelector(".burger");
+    menu.classList.toggle("active");
+    burger.classList.toggle("active");
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const chatMessages = document.getElementById("chatMessages");
+
+    // Message utilisateur
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = message;
+    chatMessages.appendChild(userMsg);
+
+    // Réponse simulée du bot
+    const botMsg = document.createElement("div");
+    botMsg.className = "message bot";
+    botMsg.textContent = "hello my fucking bro !!!";
+    chatMessages.appendChild(botMsg);
+
+    input.value = "";
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
